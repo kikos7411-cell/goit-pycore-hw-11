@@ -53,7 +53,7 @@ def process_directory(src_dir: Path, dist_dir: Path):
 
 def main():
     if len(sys.argv) < 2:
-        logging.error("Вкажіть шлях до директорії з файлами")
+        logging.error("Specify the path to the directory with the files")
         sys.exit(1)
 
 
@@ -61,7 +61,7 @@ def main():
     dist_path = Path(sys.argv[2]) if len(sys.argv) > 2 else Path("dist")
 
     if not src_path.exists() or not src_path.is_dir():
-        logging.error("Джерельна директорія не існує")
+        logging.error("The source directory does not exist.")
         sys.exit(1)
 
 
@@ -70,7 +70,7 @@ def main():
     process_directory(src_path, dist_path)
 
     copy_executor.shutdown(wait=True)
-    logging.info("Сортування завершено!")
+    logging.info("Sorting complete!")
 
 
 
